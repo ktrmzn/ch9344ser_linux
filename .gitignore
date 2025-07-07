@@ -1,0 +1,122 @@
+# Compiled Object files
+*.o
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+*.ko
+*.order
+.tmp_versions/
+Module.symvers
+Kconfig.include
+modules.order
+Module.markers
+
+# Linux kernel build files
+.*.d
+.config
+.config.old
+.version
+.missing-syscalls.d
+.tmp_*
+
+# Build directories
+build/
+Build/
+debug/
+Debug/
+release/
+Release/
+
+# Generated documentation
+*.pdf
+*.ps
+*.dvi
+
+# Backup files
+*~
+*.swp
+*.swo
+*#
+.#*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.pro.user
+*.pro.user.*
+*.tmp
+*.autosave
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+
+# Autotools
+Makefile.in
+aclocal.m4
+autom4te.cache/
+config.guess
+config.sub
+configure
+install-sh
+ltmain.sh
+missing
+depcomp
+
+# Tags and cscope
+tags
+cscope.*
+TAGS
+
+# Core dumps
+core
+core.*
+
+# Device specific files (if any)
+*.bin
+*.img
+*.rom
