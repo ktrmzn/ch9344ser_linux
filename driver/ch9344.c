@@ -3132,7 +3132,7 @@ static int ch9344_probe(struct usb_interface *intf,
 	ch9344->io_id = IOID;
 
 	dev_info(&intf->dev,
-		 "ttyCH9344USB from %d - %d: ch9344 device attached.\n",
+		 "ttyUSB from %d - %d: ch9344 device attached.\n",
 		 NUMSTEP * minor, NUMSTEP * minor + portnum - 1);
 
 	kfree(buffer);
@@ -3415,7 +3415,7 @@ static int __init ch9344_init(void)
 		return -ENOMEM;
 #endif
 	ch9344_tty_driver->driver_name = "ch9344",
-	ch9344_tty_driver->name = "ttyCH9344USB",
+	ch9344_tty_driver->name = "ttyUSB",
 	ch9344_tty_driver->major = CH9344_TTY_MAJOR,
 	ch9344_tty_driver->minor_start = 0,
 	ch9344_tty_driver->type = TTY_DRIVER_TYPE_SERIAL,
