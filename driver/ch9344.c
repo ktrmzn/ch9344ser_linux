@@ -47,6 +47,7 @@
 #undef VERBOSE_DEBUG
 
 #include <linux/errno.h>
+#include <linux/hardirq.h>
 #include <linux/idr.h>
 #include <linux/init.h>
 #include <linux/kernel.h>
@@ -1381,6 +1382,16 @@ transmit:
 	}
 
 	if (!ch9344->ttyport[portnum].write_empty) {
+		/* For atomic context or when write buffer is not empty,
+		 * use non-blocking approach suitable for PPP and other
+		 * kernel drivers that may call from atomic context */
+		if (in_atomic() || in_interrupt() || irqs_disabled()) {
+			/* Cannot wait in atomic context */
+			spin_unlock_irqrestore(&ch9344->write_lock, flags);
+			wb->use = 0;
+			return -EAGAIN;
+		}
+
 		spin_unlock_irqrestore(&ch9344->write_lock, flags);
 		timeout = wait_event_interruptible_timeout(
 			ch9344->ttyport[portnum].wioctl,
